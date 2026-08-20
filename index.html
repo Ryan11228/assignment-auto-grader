@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assignment Auto-Grader</title>
+
+  <!-- Fonts: serif for headings, sans for body, monospace for data -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- Top strip: title, left-aligned, no hero, no centering -->
+    <header class="app-header">
+      <p class="eyebrow">GRADEBOOK TOOL</p>
+      <h1>Assignment Auto-Grader</h1>
+      <p class="subtitle">Upload a class CSV to calculate statistics and flag students at risk.</p>
+    </header>
+
+    <!-- Left column: setup controls -->
+    <aside class="control-panel">
+      <h2>Setup</h2>
+
+      <div class="control-group">
+        <label for="csvFile">CSV file</label>
+        <input type="file" id="csvFile" accept=".csv" />
+      </div>
+
+      <div class="control-group">
+        <label for="kkmInput">KKM (passing grade)</label>
+        <input type="number" id="kkmInput" value="76" />
+      </div>
+
+      <div class="control-group">
+        <label for="cautionInput">Caution ceiling</label>
+        <input type="number" id="cautionInput" value="84" />
+      </div>
+
+      <button id="downloadPdfBtn" class="btn-secondary">Download PDF report</button>
+    </aside>
+
+    <!-- Right column: results -->
+    <main class="content-panel">
+
+      <section class="stats-row">
+        <div class="stat">
+          <span class="stat-label">Mean</span>
+          <span class="stat-value" id="meanValue">—</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Median</span>
+          <span class="stat-value" id="medianValue">—</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Mode</span>
+          <span class="stat-value" id="modeValue">—</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Std. Deviation</span>
+          <span class="stat-value" id="stdDevValue">—</span>
+        </div>
+      </section>
+
+      <hr class="ledger-rule" />
+
+      <section class="table-section">
+        <h2>Student breakdown</h2>
+        <table id="studentsTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Grade</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rows added by JavaScript -->
+          </tbody>
+        </table>
+      </section>
+
+      <hr class="ledger-rule" />
+
+      <section class="chart-section">
+        <h2>Grade distribution</h2>
+        <canvas id="gradeChart"></canvas>
+      </section>
+
+    </main>
+
+    <footer class="app-footer">
+      <p>Built for [Your School Name] — Assignment Auto-Grader</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
