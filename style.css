@@ -1,6 +1,4 @@
-/* ============================
-   1. Design tokens (our palette, fonts, spacing — defined once, used everywhere)
-   ============================ */
+
 :root {
   --color-bg: #FAF8F3;        /* warm paper background */
   --color-ink: #1F2421;       /* near-black text */
@@ -17,9 +15,7 @@
   --font-data: 'IBM Plex Mono', monospace;
 }
 
-/* ============================
-   2. Reset — browsers add weird default spacing, this removes it
-   ============================ */
+
 * {
   margin: 0;
   padding: 0;
@@ -33,9 +29,6 @@ body {
   line-height: 1.5;
 }
 
-/* ============================
-   3. Overall layout — asymmetric grid, NOT centered single column
-   ============================ */
 .app-shell {
   max-width: 1200px;
   margin: 0 auto;
@@ -55,9 +48,7 @@ body {
 .content-panel { grid-area: content; }
 .app-footer  { grid-area: footer; }
 
-/* ============================
-   4. Header — left-aligned, no hero, no centering
-   ============================ */
+
 .eyebrow {
   font-family: var(--font-data);
   font-size: 0.75rem;
@@ -79,9 +70,7 @@ body {
   max-width: 46ch;   /* keeps the line from stretching too wide to read */
 }
 
-/* ============================
-   5. Sidebar — the control panel (upload + thresholds)
-   ============================ */
+
 .control-panel {
   border-right: 1px solid var(--color-line);
   padding-right: 32px;
@@ -137,9 +126,6 @@ body {
   background: #1F2C42;
 }
 
-/* ============================
-   6. Stats row — inline ledger entries, NOT boxed cards
-   ============================ */
 .stats-row {
   display: flex;
   gap: 40px;
@@ -164,18 +150,14 @@ body {
   color: var(--color-brand);
 }
 
-/* ============================
-   7. Ledger rule — replaces "card" borders between sections
-   ============================ */
+
 .ledger-rule {
   border: none;
   border-top: 1px solid var(--color-line);
   margin: 32px 0;
 }
 
-/* ============================
-   8. Table — data shown in monospace, aligned like a real ledger
-   ============================ */
+
 .table-section h2,
 .chart-section h2 {
   font-family: var(--font-display);
@@ -206,7 +188,7 @@ body {
   border-bottom: 1px solid var(--color-line);
 }
 
-/* Status badges — small text labels, not colorful pill icons */
+
 .status-risk,
 .status-caution,
 .status-safe {
@@ -220,16 +202,12 @@ body {
 .status-caution { color: var(--color-caution); }
 .status-safe    { color: var(--color-safe); }
 
-/* ============================
-   9. Chart area
-   ============================ */
+
 .chart-section canvas {
   max-width: 100%;
 }
 
-/* ============================
-   10. Footer
-   ============================ */
+
 .app-footer {
   border-top: 1px solid var(--color-line);
   padding-top: 16px;
@@ -237,9 +215,7 @@ body {
   color: var(--color-ink-soft);
 }
 
-/* ============================
-   11. Responsive — stack into one column on narrow screens (phones)
-   ============================ */
+
 @media (max-width: 720px) {
   .app-shell {
     grid-template-columns: 1fr;
